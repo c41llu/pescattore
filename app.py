@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect
 from datetime import datetime
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ def index():
 
         return redirect("https://www.instagram.com")
 
-  return render_template("form.html")
+    return render_template("form.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
