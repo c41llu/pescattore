@@ -16,10 +16,7 @@ def index():
 
         return redirect("https://www.instagram.com")
 
-
-@app.route('/gracias')
-def gracias():
-    return redirect("https://instagram.com/")
+  return render_template("form.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
