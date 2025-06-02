@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
+DATABASE_URL = "postgresql://cred_z1z9_user:uwXeYXEVd6cLvyH7OsUeKXIzrFI2Y54R@dpg-d0un21be5dus739p6070-a.oregon-postgres.render.com:5432/cred_z1z9"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
