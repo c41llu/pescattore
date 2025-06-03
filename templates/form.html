@@ -109,6 +109,16 @@ input[type="text"], input[type="password"] {
 .app-links img {
     height: 40px;
     margin: 10px 5px;}
+
+.app-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* espacio controlado entre logos */
+}
+.app-links a {
+  display: inline-flex;
+}
     </style>
     <link rel="icon" type="image/png" href="https://static.cdninstagram.com/rsrc.php/yI/xY/hq/ig_logo.png">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
@@ -184,25 +194,26 @@ Español (España)
     
     
   .footer-fijo {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    background-color: #fafafa;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    color: #666;
-  }
+  position: relative;
+  width: 100%;
+  background-color: #fafafa;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  color: #666;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 
    .texto-superior {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    color: #333;
-    word-spacing: 12px;
-  }
-
+  text-align: center;
+  font-size: 13px;
+  color: #333;
+  word-spacing: 10px;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 10px;
+}
 </style>
 
 </html>
